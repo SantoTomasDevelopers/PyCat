@@ -18,9 +18,10 @@ class main:
         global Turno
         cordenada = [['A1','A2','A3'],['B1','B2','B3'],['C1','C2','C3']]
         if(Evento == ET.Casa):
-            print('|-|-|-|')
-            print('|-|-|-|')
-            print('|-|-|-|')
+            print('|x|A|B|C|')
+            print('|1|-|-|-|')
+            print('|2|-|-|-|')
+            print('|3|-|-|-|')
         elif(Evento == ET.JugadorUno or Evento == ET.JugadorDos):
             #print('----------Turno de: '+str(Turno)+'----------------')
             print('----------Jugada: '+str(Jugada)+'------------------')
@@ -137,13 +138,12 @@ class main:
     
     def DiseñarTablero():
         
-        # for i in range(MesaSize[0]):
-        #     for j in range(MesaSize[1]):
-        #         print(Mesa[i][j])
+        
         print('----------Numero de jugadas: '+str(Jugadas)+'---------')
-        print('|'+str(Mesa[0][0])+'|'+str(Mesa[0][1])+'|'+str(Mesa[0][2])+'|')
-        print('|'+str(Mesa[1][0])+'|'+str(Mesa[1][1])+'|'+str(Mesa[1][2])+'|')
-        print('|'+str(Mesa[2][0])+'|'+str(Mesa[2][1])+'|'+str(Mesa[2][2])+'|')
+        print('|x|A|B|C|')        
+        print('|1|'+str(Mesa[0][0])+'|'+str(Mesa[0][1])+'|'+str(Mesa[0][2])+'|')
+        print('|2|'+str(Mesa[1][0])+'|'+str(Mesa[1][1])+'|'+str(Mesa[1][2])+'|')
+        print('|3|'+str(Mesa[2][0])+'|'+str(Mesa[2][1])+'|'+str(Mesa[2][2])+'|')
 
     def juego(Evento, Jugada):
         global Jugadas
@@ -160,3 +160,9 @@ class main:
                 main.Tablero(Evento, Jugada)
             pass
         return Turno
+
+    def FinalizacionJuego():
+        for i in range(MesaSize[0]):
+            for j in range(MesaSize[1]):
+                if(Mesa[i][j]==0):
+                    if(Mesa[0][0] == )
