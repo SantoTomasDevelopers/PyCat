@@ -165,4 +165,5 @@ class main:
         for i in range(MesaSize[0]):
             for j in range(MesaSize[1]):
                 if(Mesa[i][j]==0):
-                    if(Mesa[0][0] == )
+                    if(Mesa[0][0] == ):
+                        pass
