@@ -140,10 +140,10 @@ class main:
         
         
         print('----------Numero de jugadas: '+str(Jugadas)+'---------')
-        print('|x|A|B|C|')        
-        print('|1|'+str(Mesa[0][0])+'|'+str(Mesa[0][1])+'|'+str(Mesa[0][2])+'|')
-        print('|2|'+str(Mesa[1][0])+'|'+str(Mesa[1][1])+'|'+str(Mesa[1][2])+'|')
-        print('|3|'+str(Mesa[2][0])+'|'+str(Mesa[2][1])+'|'+str(Mesa[2][2])+'|')
+        print('|x|1|2|3|')        
+        print('|A|'+str(Mesa[0][0])+'|'+str(Mesa[0][1])+'|'+str(Mesa[0][2])+'|')
+        print('|B|'+str(Mesa[1][0])+'|'+str(Mesa[1][1])+'|'+str(Mesa[1][2])+'|')
+        print('|C|'+str(Mesa[2][0])+'|'+str(Mesa[2][1])+'|'+str(Mesa[2][2])+'|')
 
     def juego(Evento, Jugada):
         global Jugadas
@@ -162,8 +162,26 @@ class main:
         return Turno
 
     def FinalizacionJuego():
-        for i in range(MesaSize[0]):
-            for j in range(MesaSize[1]):
-                if(Mesa[i][j]==0):
-                    if(Mesa[0][0] == ):
-                        pass
+        #1 forma de ganar a1=a2=a3
+        #2 forma de ganar b1=b2=b3
+        #3 forma de ganar c1=c2=c3
+        #4 forma de ganar a1=b2=c3
+        #5 forma de ganar a3=b2=c1
+        #6 forma de ganar a1=b1=c1
+        #7 forma de ganar a1=b1=c1
+        #8 forma de ganar a3=b3=c3
+        ganador
+        for i in range(2)
+            if(Mesa[i][0] != 0 and Mesa[i][1] != 0 and Mesa[i][2] != 0):
+                pass    
+            if(Mesa[i][0] != 0 and Mesa[i][1] != 0 and Mesa[i][2] != 0):
+                pass    
+            if(Mesa[i][0] != 0 and Mesa[i][1] != 0 and Mesa[i][2] != 0):
+                pass
+            if(Mesa[i][0] != 0 and Mesa[i][1] != 0 and Mesa[i][2] != 0):
+
+
+        # for i in range(MesaSize[0]):
+        #     for j in range(MesaSize[1]):
+        #         if(Mesa[i][j] != 0):
+        #             pass

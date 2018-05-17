@@ -35,7 +35,7 @@ tablero = main.DiseñarTablero()
 #main.juego(1,'A1')
 
 while(True):
-    Cordenada = input(' Jugador: '+Jugador+' -Ingrese la cordenada a marcar:: ')
+    Cordenada = input(' Jugador: '+str(Jugador)+' -Ingrese la cordenada a marcar:: ')
     if(Jugador == 1):
         Jugador = main.juego(Jugador,Cordenada)
     else:
