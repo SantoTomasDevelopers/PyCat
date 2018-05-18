@@ -1,4 +1,4 @@
 # PyCat
 
 
-Este es nuestro primer jeugo realizado en Python 3.6.2 
+Este es nuestro primer juego realizado en Python 3.6.2 
