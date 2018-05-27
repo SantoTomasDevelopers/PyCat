@@ -15,5 +15,5 @@ d = a.encode("utf8")
 
 b = a.encode("ascii")
 #c = a.decode("utf-8")
-a=b
+a = b
 #hola wea

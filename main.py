@@ -1,187 +1,67 @@
-from Eventos import EventoTablero
-import numpy as np
+from PyCat import main
+# import win32serviceutil, win32service
+# import win32event, win32api
+# import servicemanager
+# import time
+# import win32gui, win32gui_struct, win32con
+# class EventDemoService(win32serviceutil.ServiceFramework):
+#     _svc_name_ = "PyServiceEventDemo"
+#     _svc_display_name_ = "Python Service Event Demo"
+#     _svc_description_ = "Demonstrates a Python service which takes 
+#     advantage of the extra notifications"
+#     def __init__(self, args):
+#          win32serviceutil.ServiceFramework.__init__(self, args)
+#          self.hWaitStop = win32event.CreateEvent(None, 0, 0, None)
+#          self.running = True
+#     def SvcStop(self):
+#          self.ReportServiceStatus(win32service.SERVICE_STOP_PENDING)
+#          win32event.SetEvent(self.hWaitStop)
+#          self.running = False
+#     def SvcDoRun(self):
+#          self.ReportServiceStatus(win32service.SERVICE_RUNNING)
+#          while self.running:
+#          servicemanager.LogInfoMsg("aservice - is alive and well")
+#          time.sleep(3)
+# def ctrlHandler(ctrlType):
+#     return True
+# if __name__=='__main__':
+#     win32api.SetConsoleCtrlHandler(ctrlHandler, True)
+#     win32serviceutil.HandleCommandLine(EventDemoService)
 
-ET       = EventoTablero()
-Mesa     = [[0,0,0],[0,0,0],[0,0,0]]
-Mesa     = np.array(Mesa)
-MesaSize = Mesa.shape
-Jugadas  = 0
-Turno    = 1
-TurnoAnterior = [0]
+Jugador = 1,True
+Cordenada = ''
+FinJuego = True
+Continue = True
+Respuesta = None
 
-class main:
-    def __init__(self):
-        self.VarUno   = 0
+#Ejemplo de comando
+#main.juego(1,'A1')
 
-    def Tablero( Evento, Jugada):
-        global Jugadas
-        global Turno
-        cordenada = [['A1','A2','A3'],['B1','B2','B3'],['C1','C2','C3']]
-        if(Evento == ET.Casa):
-            print('|x|A|B|C|')
-            print('|1|-|-|-|')
-            print('|2|-|-|-|')
-            print('|3|-|-|-|')
-        elif(Evento == ET.JugadorUno or Evento == ET.JugadorDos):
-            #print('----------Turno de: '+str(Turno)+'----------------')
-            print('----------Jugada: '+str(Jugada)+'------------------')
-            # if(Turno == 1):
-            #     Turno = 2
-            # else:
-            #     Turno = 1
-            if 'A' in Jugada:
-                if '1' in Jugada:
-                    if(Mesa[0][0]==0):
-                        if(Evento == ET.JugadorUno):
-                            Mesa[0][0]=1
-                            Turno = 2
-                        else:
-                            Mesa[0][0]=2
-                            Turno = 1
-                    else:
-                        print('Jugada invalida')
-                        Turno = 3
-                if '2' in Jugada:
-                    if(Mesa[0][1]==0):
-                        if(Evento == ET.JugadorUno):
-                            Mesa[0][1]=1
-                            Turno = 2
-                        else:
-                            Mesa[0][1]=2
-                            Turno = 1
-                    else:
-                        print('Jugada invalida')
-                        Turno = 3
-                if '3' in Jugada:
-                    if(Mesa[0][2]==0):
-                        if(Evento == ET.JugadorUno):
-                            Mesa[0][2]=1
-                            Turno = 2
-                        else:
-                            Mesa[0][2]=2
-                            Turno = 1
-                    else:
-                        print('Jugada invalida')
-                        Turno = 3
-            if 'B' in Jugada:
-                if '1' in Jugada:
-                    if(Mesa[1][0]==0):
-                        if(Evento == ET.JugadorUno):
-                            Mesa[1][0]=1
-                            Turno = 2
-                        else:
-                            Mesa[1][0]=2
-                            Turno = 1
-                    else:
-                        print('Jugada invalida')
-                        Turno = 3
-                if '2' in Jugada:
-                    if(Mesa[1][1]==0):
-                        if(Evento == ET.JugadorUno):
-                            Mesa[1][1]=1
-                            Turno = 2
-                        else:
-                            Mesa[1][1]=2
-                            Turno = 1
-                    else:
-                        print('Jugada invalida')
-                        Turno = 3
-                if '3' in Jugada:
-                    if(Mesa[1][2]==0):
-                        if(Evento == ET.JugadorUno):
-                            Mesa[1][2]=1
-                            Turno = 2
-                        else:
-                            Mesa[1][2]=2
-                            Turno = 1
-                    else:
-                        print('Jugada invalida')
-                        Turno = 3
-            if 'C' in Jugada:
-                if '1' in Jugada:
-                    if(Mesa[2][0]==0):
-                        if(Evento == ET.JugadorUno):
-                            Mesa[2][0]=1
-                            Turno = 2
-                        else:
-                            Mesa[2][0]=2
-                            Turno = 1
-                    else:
-                        print('Jugada invalida')
-                        Turno = 3
-                if '2' in Jugada:
-                    if(Mesa[2][1]==0):
-                        if(Evento == ET.JugadorUno):
-                            Mesa[2][1]=1
-                            Turno = 2
-                        else:
-                            Mesa[2][1]=2
-                            Turno = 1
-                    else:
-                        print('Jugada invalida')
-                        Turno = 3
-                if '3' in Jugada:
-                    if(Mesa[2][2]==0):
-                        if(Evento == ET.JugadorUno):
-                            Mesa[2][2]=1
-                            Turno = 2
-                        else:
-                            Mesa[2][2]=2
-                            Turno = 1
-                    else:
-                        print('Jugada invalida')
-                        Turno = 3
-
-
-        Jugadas = Jugadas + 1
-        main.DiseñarTablero()
+while Continue:
+    main.LimpiarTablero()
     
-    def DiseñarTablero():
-        
-        
-        print('----------Numero de jugadas: '+str(Jugadas)+'---------')
-        print('|x|1|2|3|')        
-        print('|A|'+str(Mesa[0][0])+'|'+str(Mesa[0][1])+'|'+str(Mesa[0][2])+'|')
-        print('|B|'+str(Mesa[1][0])+'|'+str(Mesa[1][1])+'|'+str(Mesa[1][2])+'|')
-        print('|C|'+str(Mesa[2][0])+'|'+str(Mesa[2][1])+'|'+str(Mesa[2][2])+'|')
-
-    def juego(Evento, Jugada):
-        global Jugadas
-        global Turno
-        global TurnoAnterior
-        Ante = 0
-        if(Turno != 3):
-            main.Tablero(Evento, Jugada)
-            TurnoAnterior.append(Turno)
-            
+    Jugador = 1, True
+    Respuesta = None
+    tablero = main.DiseñarTablero()
+    while(FinJuego):
+        Cordenada = input(' Jugador: '+str(Jugador[0])+' -Ingrese la cordenada a marcar:: ')
+        if(Jugador[0] == 1):
+            Jugador = main.juego(Jugador[0],Cordenada)
         else:
-            Ante = len(TurnoAnterior)
-            if Turno == TurnoAnterior[Ante -1]:
-                main.Tablero(Evento, Jugada)
-            pass
-        return Turno
+            Jugador = main.juego(Jugador[0],Cordenada)
+        FinJuego = Jugador[1]
+        # print(Jugador)
+    
+    while(Respuesta != 'SI'):
+        Respuesta =  input('Decea Realizar otra partida?? SI/NO '  )
+        Respuesta = Respuesta.upper()
+        # print(Respuesta)
+        if(Respuesta == 'SI'):
+            FinJuego = True
+            break
+        elif (Respuesta == 'NO'):
+            Continue = False
+            FinJuego = False
+            break
 
-    def FinalizacionJuego():
-        #1 forma de ganar a1=a2=a3
-        #2 forma de ganar b1=b2=b3
-        #3 forma de ganar c1=c2=c3
-        #4 forma de ganar a1=b2=c3
-        #5 forma de ganar a3=b2=c1
-        #6 forma de ganar a1=b1=c1
-        #7 forma de ganar a1=b1=c1
-        #8 forma de ganar a3=b3=c3
-        ganador
-        for i in range(2)
-            if(Mesa[i][0] != 0 and Mesa[i][1] != 0 and Mesa[i][2] != 0):
-                pass    
-            if(Mesa[i][0] != 0 and Mesa[i][1] != 0 and Mesa[i][2] != 0):
-                pass    
-            if(Mesa[i][0] != 0 and Mesa[i][1] != 0 and Mesa[i][2] != 0):
-                pass
-            if(Mesa[i][0] != 0 and Mesa[i][1] != 0 and Mesa[i][2] != 0):
-
-
-        # for i in range(MesaSize[0]):
-        #     for j in range(MesaSize[1]):
-        #         if(Mesa[i][j] != 0):
-        #             pass
+print('GRACIAS POR JUGAR TIC - TAC - TOE!!!!!!!!!\n**********ADIOS**********')
